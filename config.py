@@ -1,4 +1,5 @@
 CHARACTER_LIMIT = 10000
+MAX_OUTPUT_CHARS = 10000
 WORKING_DIR = "./calculator"
 system_prompt = """
 You are a helpful AI coding agent.
