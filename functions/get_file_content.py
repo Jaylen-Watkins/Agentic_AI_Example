@@ -1,5 +1,6 @@
 
 import os
+from google.genai import types # type: ignore
 from config import CHARACTER_LIMIT
 
 def get_file_content(working_directory, file_path):
@@ -27,3 +28,20 @@ def get_file_content(working_directory, file_path):
         return f'Error: Permission denied to read "{file_path}"'
     except Exception as e:
         return f'Error: An error occurred while reading "{file_path}": {str(e)}'
+    
+
+
+schema_get_file_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description="...",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="...",
+            ),
+        },
+        required=["file_path"],
+    ),
+)
